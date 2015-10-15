@@ -1,0 +1,19 @@
+{
+  "name": "socialapp",
+  "version": "1.0.0",
+  "description": "Social App",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.0.45",
+    "node": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

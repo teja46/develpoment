@@ -1,0 +1,50 @@
+body{
+	margin: 5px 10px;
+}
+.user-details{
+	float: right;
+}
+.logout{
+	display: block;
+}
+.row{
+	margin: 50px 0;
+	border-top: 2px solid #666666;
+}
+.left-content{
+	border-right: 1px solid #666666;
+}
+.search-content{
+	margin: 10px 0;
+}
+.save-feeds{
+	float: right;
+}
+.content-data{
+	width: 250px;
+    border: 1px solid #666666;
+    float: left;
+    margin: 5px;
+    word-break: break-word;
+}
+.content{
+	padding: 15px;
+	text-align: center;
+}
+.content img{
+	border: 1px solid #666666;
+}
+.description{
+	padding: 15px;
+	border-bottom: 1px solid #666666;
+}
+.feed-details{
+	padding: 20px;
+	text-align: center;
+}
+.feed-details img{
+	float: left;
+}
+.feed-details img+span{
+	display: block;
+}

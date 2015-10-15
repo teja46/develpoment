@@ -1,0 +1,35 @@
+<div class="col-xs-6 left-content" ng-controller="leftPaneController">
+	<div class="search-content">
+		<input type="text" placeholder="Search Feeds" ng-model="feedSearch" ng-change="getData(filteredFeeds, feedSearch)">
+		<button type="button" class="btn btn-default save-feeds" ng-click="saveFeeds() ">Save Feeds</button>
+	</div>
+	<div class="content-data" ng-repeat="feed in filteredFeeds | filter: feedSearch">
+		<div class="content">
+			<img check-image ng-src="{{feed.picture}}" class="image" alt="contentImage">
+		</div>
+		<div class="description">
+			{{feed.message}} 
+		</div>
+		<div class="feed-details">
+			<img src="images/user.jpg"><span>{{feed['from'].name}}</span><span>{{feed.type}}</span>
+		</div>
+	</div>
+</div>
+<!-- Left pane which shows the feeds from Facebook ends -->
+<!-- Right pane which shows the feeds from Mongo DB starts -->
+<div class="col-xs-6 right-content" ng-controller="rightPaneController">
+	<div class="search-content">
+		<input type="text" placeholder="Search Feeds" ng-modal="savedFeedSearch" ng-model="feedSearch">
+	</div>
+	<div class="content-data" ng-repeat="feed in savedFilteredFeeds | filter: feedSearch">
+		<div class="content">
+			<img check-image ng-src="{{feed.picture}}" class="image" alt="contentImage">
+		</div>
+		<div class="description">
+			{{feed.message}} 
+		</div>
+		<div class="feed-details">
+			<img src="images/user.jpg"><span>{{feed['from'].name}}</span><span>{{feed.type}}</span>
+		</div>
+	</div>
+</div>
