@@ -19,7 +19,6 @@ app.post('/postFeeds', function (req, res) {
 	};
    	query.query=req.body;
 	db.insertData(query,function(err,data){
-		console.log("data="+data);
 		res.set('Content-Type', 'application/json');
 		if(err){
 			res.send(err);
@@ -33,6 +32,39 @@ app.post('/postFeeds', function (req, res) {
 app.get('/getFeeds', function (req, res) {
   	var query={
 		'collection':'faceBookFeeds',
+	};	
+	db.getData(query,function(err,data){
+		console.log(data);
+		res.set('Content-Type', 'application/json');
+		if(err){
+			res.send(err);
+			return;
+		}
+		res.send(data);
+		return;
+	});	
+});
+// Posts the login Details
+app.post('/postLoginDetails', function (req, res) {
+	var query={
+		'collection':'facebookLogin',
+	};
+   	query.query=req.body;
+   	// db.removeData(query);
+	db.saveLoginDetails(query,function(err,data){
+		res.set('Content-Type', 'application/json');
+		if(err){
+			res.send(err);
+			return;
+		}
+		res.send(data);
+		return;
+	});
+});
+// Gets login Details
+app.get('/getLoginDetails', function (req, res) {
+  	var query={
+		'collection':'facebookLogin',
 	};	
 	db.getData(query,function(err,data){
 		console.log(data);

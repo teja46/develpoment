@@ -8,6 +8,14 @@ app.factory('postFeedsFactory',['postFeedsService',function (postFeedsService) {
 		getFeeds: function (callback) { 
 			var url ='/getFeeds';				
 			postFeedsService.get(url,callback);				
+		},
+		postAuthDetails: function(details,callback){
+			var url = '/postLoginDetails';
+			postFeedsService.post(url,details,callback);
+		},
+		getAuthResponse: function(callback){
+			var url = '/getLoginDetails';
+			postFeedsService.get(url,callback);
 		}
 	}
 }]);

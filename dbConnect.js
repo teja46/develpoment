@@ -18,8 +18,8 @@ var db = function(){
 		 	}
 		 	callback(err,db);
 		 	return; 
-		});
-	};
+	});
+};
 	// This function returns data from Mongo to right pane
 	self.getData = function(query,callback){
 		var getResponse=function(err,dbCon){
@@ -45,14 +45,38 @@ var db = function(){
 				callback(err);
 				return;
 			}
-			console.log(query);
+			// console.log(JSON.stringify(query.query));
 			var collection = dbCon.collection(query.collection);
-			
 			collection.insert(query.query ,function(err, docs) {
 				callback(err,docs);
 				dbCon.close();
 			});
 			
+		}
+		self.connect(getResponse);
+	};
+	// This function saves the login details of the user
+	self.saveLoginDetails = function(query,callback){
+		var getResponse=function(err,dbCon){
+			if(err){
+				callback(err);
+				return;
+			}
+			var collection = dbCon.collection(query.collection);
+			collection.find({id: query.query.id}).toArray(function (err, result) {
+		      	if (result.length==0) {
+		        	collection.insert(query.query ,function(err, docs) {
+						callback(err,docs);
+						dbCon.close();
+					});
+		      	} else {
+		        	collection.remove({});
+		        	collection.insert(query.query ,function(err, docs) {
+						callback(err,docs);
+						dbCon.close();
+					});
+		      	}
+		    });
 		}
 		self.connect(getResponse);
 	};
